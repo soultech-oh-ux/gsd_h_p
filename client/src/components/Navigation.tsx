@@ -19,6 +19,7 @@ const Navigation = () => {
   const navLinks = [
     { name: "About", href: "#about", label: "연구소 소개" },
     { name: "Research", href: "#research", label: "주요 사업" },
+    { name: "Community", href: "#community", label: "커뮤니티" },
     { name: "Team", href: "#contact", label: "문의하기" },
     { name: "Cafe", href: "https://cafe.naver.com/goosd", label: "공식 카페", external: true },
   ];
