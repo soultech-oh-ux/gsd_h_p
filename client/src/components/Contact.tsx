@@ -58,10 +58,15 @@ const Contact = () => {
                   <MessageSquare className="w-5 h-5 text-yellow-600" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1">KakaoTalk</h4>
-                  <p className="text-muted-foreground">
-                    ID: soultech-oh
-                  </p>
+                  <h4 className="font-bold mb-1">KakaoTalk Open Chat</h4>
+                  <a 
+                    href="https://open.kakao.com/o/g8X6BQZh" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors hover:underline"
+                  >
+                    오픈채팅 참여하기
+                  </a>
                 </div>
               </div>
             </div>
@@ -106,8 +111,13 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full text-base py-6">
-                  문의 접수하기
+                <Button 
+                  type="button" 
+                  className="w-full text-base py-6 bg-yellow-400 hover:bg-yellow-500 text-black font-bold"
+                  onClick={() => window.open('https://open.kakao.com/o/g8X6BQZh', '_blank')}
+                >
+                  <MessageSquare className="mr-2 w-5 h-5" />
+                  카카오톡 오픈채팅으로 문의하기
                 </Button>
               </form>
             </CardContent>
