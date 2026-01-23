@@ -1,8 +1,34 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Maximize2, ExternalLink } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Cross } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const resources = [
+  {
+    title: "복음과 AI디지털 목회",
+    icon: Cross,
+    url: "https://padlet.com/kgoh9191/ai-mnvyvpebq4iq4rbq",
+    embedUrl: "https://padlet.com/embed/kgoh9191/ai-mnvyvpebq4iq4rbq"
+  },
+  {
+    title: "사회복지 행정서류",
+    icon: FileText,
+    url: "https://padlet.com/kgoh9191/ai-8fvz98xu171hivz6",
+    embedUrl: "https://padlet.com/embed/kgoh9191/ai-8fvz98xu171hivz6"
+  },
+  {
+    title: "교육 프로그램",
+    icon: BookOpen,
+    url: "https://padlet.com/kgoh9191/ai-tohcnjocsr8f5t6n",
+    embedUrl: "https://padlet.com/embed/kgoh9191/ai-tohcnjocsr8f5t6n"
+  }
+];
 
 const PadletSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeResource = resources[activeIndex];
+
   return (
     <section id="community" className="py-24 bg-background relative overflow-hidden">
       <div className="container px-4 md:px-6 relative z-10">
@@ -14,40 +40,60 @@ const PadletSection = () => {
             AI 지식 공유 게시판
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
-            최신 AI 트렌드와 연구 자료를 공유하는 열린 공간입니다.
-            자유롭게 의견을 나누고 정보를 얻어가세요.
+            다양한 분야의 최신 AI 자료와 노하우를 공유합니다.
+            원하시는 주제를 선택하여 확인해보세요.
           </p>
           
-          <div className="flex justify-center gap-4 mb-8">
-            <Button variant="outline" asChild>
+          {/* Tab Selection */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {resources.map((resource, index) => {
+              const Icon = resource.icon;
+              return (
+                <Button
+                  key={index}
+                  variant={activeIndex === index ? "default" : "outline"}
+                  onClick={() => setActiveIndex(index)}
+                  className={cn(
+                    "rounded-full transition-all duration-300",
+                    activeIndex === index ? "ring-2 ring-primary/20 ring-offset-2" : "hover:border-primary/50"
+                  )}
+                >
+                  <Icon className="mr-2 w-4 h-4" />
+                  {resource.title}
+                </Button>
+              );
+            })}
+          </div>
+
+          <div className="flex justify-center mb-8">
+            <Button variant="ghost" className="text-muted-foreground hover:text-primary" asChild>
               <a 
-                href="https://padlet.com/kgoh9191/ai-mnvyvpebq4iq4rbq" 
+                href={activeResource.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
                 <ExternalLink className="mr-2 w-4 h-4" />
-                새 창으로 열기
+                {activeResource.title} 새 창으로 열기
               </a>
             </Button>
           </div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          key={activeResource.embedUrl}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="relative w-full aspect-[16/9] md:aspect-[16/10] rounded-xl overflow-hidden shadow-2xl border border-border bg-muted"
         >
           <iframe 
-            src="https://padlet.com/embed/kgoh9191/ai-mnvyvpebq4iq4rbq" 
+            src={activeResource.embedUrl}
             className="absolute inset-0 w-full h-full border-0"
-            title="GoodSeed AI Padlet"
+            title={activeResource.title}
             sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-presentation allow-top-navigation allow-popups-to-escape-sandbox allow-modals"
             loading="lazy"
           />
           
-          {/* Decorative overlay only while loading - handled by browser mostly, but adds polish */}
           <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.1)] rounded-xl" />
         </motion.div>
       </div>
