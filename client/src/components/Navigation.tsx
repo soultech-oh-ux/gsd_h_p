@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, Sprout } from "lucide-react"; // Using Sprout for "Seed" concept
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.webp";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,23 +30,17 @@ const Navigation = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-border py-4"
-          : "bg-transparent py-6"
+          ? "bg-background/95 backdrop-blur-md border-border py-2 shadow-sm"
+          : "bg-transparent py-4"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary/10 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
-              <Sprout className="w-6 h-6 text-primary" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-xl leading-none tracking-tight">
-                GOODSEED
-              </span>
-              <span className="text-xs text-muted-foreground font-medium tracking-wider">
-                AI RESEARCH LAB
-              </span>
-            </div>
+            <img 
+              src={logo} 
+              alt="GOODSEED Logo" 
+              className="h-12 w-auto object-contain transition-transform group-hover:scale-105" 
+            />
         </Link>
 
         {/* Desktop Nav */}
