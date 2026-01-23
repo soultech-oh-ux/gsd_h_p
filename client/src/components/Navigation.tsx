@@ -51,7 +51,7 @@ const Navigation = () => {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-base font-bold text-black hover:text-primary transition-colors"
             >
               {link.label}
             </a>
@@ -77,7 +77,7 @@ const Navigation = () => {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-lg font-medium hover:text-primary transition-colors"
+                    className="text-lg font-bold text-black hover:text-primary transition-colors"
                   >
                     {link.label}
                   </a>
