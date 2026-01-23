@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, MessageCircle, BookOpen } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
 
 const Hero = () => {
@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/20 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40 z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
         <img
           src={heroBg}
@@ -18,30 +18,36 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-20 px-4 md:px-6">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
-              Pioneering Tomorrow
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              실생활에 도움이 되는 따뜻한 기술
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.1]">
-              미래를 선도하는 <br />
-              <span className="text-primary">인공지능 연구소</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.15]">
+              굿씨드 AI연구소 <br />
+              <span className="text-primary">세상을 바꾸는 좋은 씨앗</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
-              굿씨드 AI연구소는 최첨단 딥러닝 기술과 데이터 과학을 통해 
-              인류의 삶을 혁신하고 더 나은 미래를 만들어갑니다.
+              교육, 복지, 부동산, 그리고 AI 챗봇까지.<br/>
+              굿씨드는 누구나 쉽게 사용할 수 있는 인공지능 기술로<br className="hidden sm:block"/>
+              더 편리하고 풍요로운 세상을 만들어갑니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="rounded-full text-base h-12 px-8">
-                연구 분야 보기
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <MessageCircle className="mr-2 w-4 h-4" />
+                챗봇 제작 문의
               </Button>
               <Button size="lg" variant="outline" className="rounded-full text-base h-12 px-8 bg-background/50 backdrop-blur-sm border-primary/20 hover:bg-background/80">
-                문의하기
+                <BookOpen className="mr-2 w-4 h-4" />
+                교육 프로그램 보기
               </Button>
             </div>
           </motion.div>

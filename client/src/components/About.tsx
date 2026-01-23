@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Leaf, Heart, MonitorSmartphone } from "lucide-react";
 import labInterior from "@/assets/lab-interior.png";
 
 const About = () => {
   const highlights = [
-    "최첨단 AI 알고리즘 연구",
-    "대규모 데이터 처리 및 분석",
-    "산업 맞춤형 솔루션 개발",
-    "글로벌 AI 파트너십"
+    "맞춤형 AI 챗봇 개발 및 보급",
+    "사회복지 행정 자동화 솔루션",
+    "자기주도학습 AI 교육 프로그램",
+    "부동산 개발지구 분석 AI"
   ];
 
   return (
@@ -21,7 +21,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-border/50">
               <img 
                 src={labInterior} 
                 alt="AI Research Lab" 
@@ -29,14 +29,14 @@ const About = () => {
               />
             </div>
             {/* Floating Card */}
-            <div className="absolute -bottom-6 -right-6 bg-background p-6 rounded-xl shadow-xl border border-border max-w-xs hidden md:block">
+            <div className="absolute -bottom-6 -right-6 bg-card p-6 rounded-xl shadow-xl border border-border max-w-xs hidden md:block">
               <div className="flex items-center gap-4 mb-2">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold text-xl">10+</span>
+                <div className="h-12 w-12 rounded-full bg-green-500/10 flex items-center justify-center">
+                  <Leaf className="text-green-600 w-6 h-6" />
                 </div>
                 <div>
-                  <p className="font-bold text-lg">년의 연구 경험</p>
-                  <p className="text-sm text-muted-foreground">AI 분야 전문성</p>
+                  <p className="font-bold text-lg">좋은 씨앗(Good Seed)</p>
+                  <p className="text-sm text-muted-foreground">나눔과 성장의 가치</p>
                 </div>
               </div>
             </div>
@@ -48,14 +48,17 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
+            <span className="text-primary font-medium tracking-wider text-sm uppercase mb-2 block">
+              Our Mission
+            </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-              기술의 한계를 넘어 <br />
-              <span className="text-primary">새로운 가능성</span>을 엽니다
+              사람을 향한 기술, <br />
+              <span className="text-primary">선한 영향력</span>을 만듭니다
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              굿씨드 AI연구소는 인공지능 기술의 실용화와 고도화를 목표로 설립되었습니다. 
-              우리는 복잡한 문제를 해결하고, 비즈니스 가치를 창출하며, 
-              사회에 긍정적인 영향을 미치는 AI 솔루션을 연구합니다.
+              굿씨드(GOODSEED) AI연구소는 기술 그 자체보다 기술이 사람에게 주는 가치에 집중합니다. 
+              복잡한 행정 업무로 고생하는 복지사님들, 학습의 방향을 찾는 학생들, 
+              그리고 새로운 비즈니스 기회를 찾는 분들에게 꼭 필요한 실용적인 AI 솔루션을 제공합니다.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -65,6 +68,19 @@ const About = () => {
                   <span className="font-medium">{item}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-border flex gap-8">
+              <div className="flex flex-col gap-2">
+                <Heart className="w-6 h-6 text-red-500" />
+                <span className="font-bold">Human-Centered</span>
+                <span className="text-sm text-muted-foreground">사람 중심의 AI 기술</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <MonitorSmartphone className="w-6 h-6 text-blue-500" />
+                <span className="font-bold">Practical</span>
+                <span className="text-sm text-muted-foreground">실용적인 솔루션</span>
+              </div>
             </div>
           </motion.div>
         </div>

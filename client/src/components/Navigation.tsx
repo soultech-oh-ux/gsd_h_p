@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X, Brain } from "lucide-react";
+import { Menu, Sprout } from "lucide-react"; // Using Sprout for "Seed" concept
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -18,9 +18,9 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "About", href: "#about", label: "연구소 소개" },
-    { name: "Research", href: "#research", label: "연구 분야" },
-    { name: "Team", href: "#team", label: "연구진" },
-    { name: "Contact", href: "#contact", label: "문의하기" },
+    { name: "Research", href: "#research", label: "주요 사업" },
+    { name: "Team", href: "#contact", label: "문의하기" },
+    { name: "Cafe", href: "https://cafe.naver.com/goosd", label: "공식 카페", external: true },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Navigation = () => {
         <Link href="/">
           <a className="flex items-center gap-2 group">
             <div className="bg-primary/10 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
-              <Brain className="w-6 h-6 text-primary" />
+              <Sprout className="w-6 h-6 text-primary" />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-xl leading-none tracking-tight">
@@ -55,6 +55,8 @@ const Navigation = () => {
             <a
               key={link.name}
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {link.label}
@@ -79,6 +81,8 @@ const Navigation = () => {
                   <a
                     key={link.name}
                     href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
                     className="text-lg font-medium hover:text-primary transition-colors"
                   >
                     {link.label}
