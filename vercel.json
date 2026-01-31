@@ -1,8 +1,4 @@
 {
-  "buildCommand": "cd client && npx vite build --config vite.config.vercel.ts",
-  "outputDirectory": "client/dist",
-  "framework": "vite",
-  "installCommand": "npm install",
   "rewrites": [
     {
       "source": "/((?!assets/|.*\\..*).*)",
